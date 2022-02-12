@@ -34,6 +34,8 @@ def print_secret(secret: str, good_guesses, bad_guesses):
         print(f'| failed guess: {bad_guesses} ({len(bad_guesses)}/{max_attempts_amount})')
     elif len(bad_guesses) > 1:
         print(f'| failed guesses: {bad_guesses} ({len(bad_guesses)}/{max_attempts_amount})')
+    else:
+        print()
     print()
 
 valid_input = False
