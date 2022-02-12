@@ -30,10 +30,12 @@ def print_secret(secret: str, good_guesses, bad_guesses):
             print(f' ', end=' ')
         else:
             print('_', end=' ')
-    if len(bad_guesses) == 1:
-        print(f'| failed guess: {bad_guesses} ({len(bad_guesses)}/{max_attempts_amount})')
-    elif len(bad_guesses) > 1:
-        print(f'| failed guesses: {bad_guesses} ({len(bad_guesses)}/{max_attempts_amount})')
+    if len(bad_guesses) > 0:
+        if len(bad_guesses) > 1:
+            plural_suffix = 'es'
+        else:
+            plural_suffix = ''
+        print(f' |  failed guess{plural_suffix}: {bad_guesses} ({len(bad_guesses)}/{max_attempts_amount})')
     else:
         print()
     print()
