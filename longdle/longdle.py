@@ -15,7 +15,7 @@ letter_gap, line_gap = 3, 20
 box_font_size, button_font_size = 32, 16
 button_width, button_height = 120, 30
 
-word_length = 5
+word_length = 6
 guess_amount = 6
 window_x = box_sizes[0]*word_length + letter_gap*(word_length-1) + 100
 window_y = box_sizes[1]*guess_amount + line_gap*(guess_amount-1) + 100
@@ -143,9 +143,10 @@ while True:
                         for i, g in enumerate(guesses[current_guess]):
                             if g in remaining_letters and letter_statuses_lists[current_guess][i] != LETTER_ACCEPTED:
                                 letter_statuses_lists[current_guess][i] = LETTER_INCLUDED
-                        if letter_statuses_lists[current_guess] == [1 for letter in solution_word]:
+                        if letter_statuses_lists[current_guess] == [LETTER_ACCEPTED for letter in solution_word]:
                             game_suspended == True
-                        current_guess = current_guess + 1
+                        else:
+                            current_guess = current_guess + 1
                     else:
                         letter_statuses_lists[current_guess] = [LETTER_WRONG for l in range(word_length)]
                     draw()
